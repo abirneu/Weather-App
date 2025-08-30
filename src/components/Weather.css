@@ -1,0 +1,173 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(3px) rotate(1deg);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes raindrop {
+  0% {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+}
+
+@keyframes snowflake {
+  0% {
+    transform: translateY(-5px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(25px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightning {
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+}
+
+.animate-sun {
+  animation: float 4s ease-in-out infinite, pulse 3s ease-in-out infinite;
+}
+
+.animate-cloud {
+  animation: sway 6s ease-in-out infinite;
+}
+
+.animate-rain {
+  position: relative;
+}
+
+.animate-rain::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to bottom, transparent, #93c5fd);
+  border-radius: 50%;
+  opacity: 0;
+  animation: raindrop 1.5s linear infinite;
+}
+
+.animate-rain::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 30%;
+  width: 2px;
+  height: 8px;
+  background: linear-gradient(to bottom, transparent, #93c5fd);
+  border-radius: 50%;
+  opacity: 0;
+  animation: raindrop 1.5s linear 0.5s infinite;
+}
+
+.animate-snow {
+  position: relative;
+}
+
+.animate-snow::after {
+  content: "❄";
+  position: absolute;
+  top: -15px;
+  left: 60%;
+  font-size: 8px;
+  opacity: 0;
+  animation: snowflake 2s linear infinite;
+}
+
+.animate-snow::before {
+  content: "❄";
+  position: absolute;
+  top: -10px;
+  left: 40%;
+  font-size: 6px;
+  opacity: 0;
+  animation: snowflake 2s linear 1s infinite;
+}
+
+.animate-wind {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+.animate-storm {
+  position: relative;
+}
+
+.animate-storm::after {
+  content: "⚡";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 12px;
+  opacity: 0;
+  animation: lightning 4s linear infinite;
+}
